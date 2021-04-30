@@ -1,0 +1,188 @@
+
+
+----------==========----------==========----------==========----------
+
+
+"Eat Your Own Catfood."
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2021/04/30
+
+
+BUGFIX
+
+
+	win32/win_scrollbar.c
+		Win9x : when color depth is 16bpp
+			OLD : thumb color is a little different
+			NEW : fixed
+	win32/win_txtbox.c
+		N_WIN_TXTBOX_STYLE_CARET_FADE_BLINK : when OFF
+			OLD : caret is not drawn
+			NEW : fixed
+			[x] : NEW_FEATURE @ 2021/04/10
+
+
+NEW_FEATURE
+
+
+	all
+		usage of size_t
+			NEW : separated
+			[!] : s64 for INT_MAX / ULONG_MAX
+			[!] : u32 for "neutral/wav.c"
+			[!] : int for limited value
+		memory management : when having problems
+			OLD : simply crash
+			NEW : tighter security available
+		C++
+			NEW : some codes are supported
+			[!] : almost codes are not supported and will never be supported
+			[!] : avoid keywords lilke interface/class/namespace/template 
+			[!] : cast for void* in malloc() : this is dirty code
+
+	neutral/memory.c
+		when having problems
+			OLD : simply crash
+			NEW : tighter security available
+	neutral/wav.c
+		security
+			NEW : stricter than older
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2021/04/20
+
+
+BUGFIX
+
+
+	neutral/jpg.c
+		save
+			OLD : broken
+			NEW : fixed
+			[x] : NEW_FEATURE @ 2021/04/10
+
+	Nonnon Paint
+		Multi-Layer : Basic Filters : when grabber is ON
+			OLD : position will warp
+			NEW : fixed
+		JPEG support
+			OLD : you cannot save
+			NEW : fixed
+			[!]:  the both 32-bit/64-bit
+	OrangeCat
+		Item View : Gallery
+			OLD : items are not loaded in some cases
+			NEW : fixed
+
+
+NEW_FEATURE
+
+
+	neutral/posix.c
+		n_posix_strlen()
+			OLD : strlen()/wcslen : limited by size_t
+			NEW : s64 availalble
+
+	win32/win_txtbox.c
+		N_WIN_TXTBOX_STYLE_CARET_FADE_BLINK
+			NEW : re-tuned
+		N_WIN_TXTBOX_OPTION_ONELINE_LNCACHE
+			NEW : removed
+			[?] : conflict with CARET_FADE_BLINK
+
+	OrangeCat
+		Find #1
+			NEW : faster than older
+		Find #2
+			NEW : binary files available
+		Find #3
+			NEW : Esc2Abort available
+			[!] : use for busy state
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2021/04/10
+
+
+BUGFIX
+
+
+	game/game.c
+		n_win_set() : when out of bound
+			OLD : do nothing
+			NEW : INNERPOS
+
+	neutral/wav/filter.c
+		n_wav_copy() : parameter "tx"
+			OLD : not working
+			NEW : fixed
+
+	project/ini2wav.c
+		n_ini2wav_load() : Offset
+			OLD : not working
+			NEW : fixed
+			[!] : n_wav_copy() causes
+
+	Nyaurism
+		INI2WAV : Offset
+			OLD : not working
+			NEW : fixed
+			[!] : n_ini2wav_load() causes
+	Watchcat
+		Process List : when refreshed
+			OLD : not smooth
+			NEW : fixed
+			[!] : selection and scroll position will be kept
+
+
+NEW_FEATURE
+
+
+	game/game.c
+		.lpf
+			NEW : removed
+			[?] : same as .fps with high value
+
+	win32/win_txtbox/12_line.c
+		n_win_txtbox_line_select_by_string()
+			NEW : select a line by a string parameter
+	win32/win_txtbox.c
+		N_WIN_TXTBOX_STYLE_CARET_FADE_BLINK
+			NEW : caret fader
+			[!] : default is ON
+
+	project/ini2wav.c
+		auto-normalization
+			NEW : removed
+			[?] : for usability
+
+	All
+		64-bit version : JPEG support
+			NEW : libjpeg-turbo available
+		32-bit version : JPEG support
+			NEW : faster static-link code is revived
+	Watchcat
+		CPU/MEM
+			NEW : window color available
+
+
+----------==========----------==========----------==========----------
+
