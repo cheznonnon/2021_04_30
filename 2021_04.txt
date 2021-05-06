@@ -12,6 +12,39 @@
 Change Log
 
 
+2021/04/30 #1 : 2021/05/06
+
+
+BUGFIX
+
+
+	game/transition.c
+		N_GAME_TRANSITION_FADE
+			OLD : faster by faster like pow()
+			NEW : fixed
+
+	OrangeCat
+		Win9x/NT4/2000/XP : MSVCRT : Hover2Tooltip : 64-bit integer
+			OLD : crash
+			NEW : fixed
+
+
+NEW_FEATURE
+
+
+	game/game.c
+		game.clip_children
+			NEW : EnumChildWindows() On/Off
+			[!] : default is OFF
+			[!] : usage is changed
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
 2021/04/30
 
 
